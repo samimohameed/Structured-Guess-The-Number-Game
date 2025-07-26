@@ -1,0 +1,20 @@
+<div class="Guess-component"> 
+    <h2>Guess the number</h2>
+    <p>I'm thinking of a number between 1 and 100.</p>
+
+    <label for="guess">Enter your guess:</label>
+    <input id="guess" type="number" [(ngModel)]="userGuess" [disabled]="gameOverr" 
+    (min)="1" (max)="100" />
+
+    <button (click)="submitGuess()" [disabled]="gameOverr">Submit</button>
+
+    <p>You made {{ attempts }} attempts.</p>
+
+    <div *ngIf="message">
+       <p>{{ message }}</p> 
+    </div>
+
+    <div *ngIf="gameOverr">
+        <button (click)="resetGame()">Play Again</button>
+    </div>
+</div>
